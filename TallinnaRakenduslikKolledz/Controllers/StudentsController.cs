@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Razor.Compilation;
 using Microsoft.EntityFrameworkCore;
 using TallinnaRakenduslikKolledz.Data;
 using TallinnaRakenduslikKolledz.Models;
@@ -24,7 +25,7 @@ namespace TallinnaRakenduslikKolledz.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID, LastName, FirstName, EnrollmentDate, Tracks")] Student student)
+        public async Task<IActionResult> Create([Bind("ID, LastName, FirstName, EnrollmentDate, Sleepy")] Student student)
         {
             if (ModelState.IsValid)
             {
@@ -35,5 +36,31 @@ namespace TallinnaRakenduslikKolledz.Controllers
             }
             return View(student);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int? id)
+        { 
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var student = await _context.Students.FirstOrDefaultAsync(m => m.Id == id);
+            if (student == null)
+            {
+                return NotFound();
+            }
+            return View(student);
+
+        }
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var student = await _context.Students.FindAsync(id);
+            _context.Students.Remove(student);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+
     }
 }
