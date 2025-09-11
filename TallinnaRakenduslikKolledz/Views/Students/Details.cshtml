@@ -1,0 +1,59 @@
+﻿@model TallinnaRakenduslikKolledz.Models.Student
+
+@{
+	ViewData["Title"] = "Detailid";
+}
+
+<h1>Detailid</h1>
+<div>
+	<form asp-action="Details">
+	<h4>Õpilane: @Model.FirstName @Model.LastName</h4>
+	<hr />
+	<dl class="row">
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => Model.LastName)</dt>
+		<dt class="col-sm-10">@Html.DisplayFor(model => Model.LastName)</dt>
+	</dl>
+	<dl class="row">
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => Model.FirstName)</dt>
+		<dt class="col-sm-10">@Html.DisplayFor(model => Model.FirstName)</dt>
+	</dl>
+	<dl class="row">
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => Model.EnrollmentDate)</dt>
+		<dt class="col-sm-10">@Html.DisplayFor(model => Model.EnrollmentDate)</dt>
+	</dl>
+
+	<dl class="row">
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => Model.Sleepy)</dt>
+		<dt class="col-sm-10">@Html.DisplayFor(model => Model.Sleepy)</dt>
+	</dl>
+
+	@if (Model.Enrollments != null)
+	{
+		foreach (var courseEnrollment in Model.Enrollments)
+		{
+			<dl class="row">
+				<dd class="col-sm-10">@courseEnrollment</dd>
+			</dl>
+		}
+	}
+
+	@if (Model.Smart != null)
+	{
+		@Model.Smart;
+	}
+
+	@if (Model.Tracks != null)
+	{
+		foreach (var track in Model.Tracks)
+		{
+			<dl class="row">
+				<dd class="col-sm-10">PlaceholderText</dd>
+			</dl>
+		}
+	}
+	</form>
+</div>
+
+<form asp-action="Index">
+	<input type="submit" value="Tagasi loendisse" class="btn btn-primary" />
+</form>
