@@ -16,7 +16,7 @@ namespace TallinnaRakenduslikKolledz.Models
         public string FirstName { get; set; }
         /*  */
         [Display(Name = "Õpetaja nimi")]
-        public string fullName
+        public string FullName
         {
             get { return LastName + ", " + FirstName; }
         }
@@ -29,8 +29,11 @@ namespace TallinnaRakenduslikKolledz.Models
         public ICollection<CourseAssignment>? CourseAssignments { get; set; }
         public OfficeAssignment? OfficeAssignments { get; set; }
         /* Lisa kolm omadust õpetaja, ise nõtled välja*/
+        [Display(Name = "Telefoni number")]
         public string? PhoneNumber { get; set; }
+        [Display(Name = "Alkohoolik")]
         public int? Alcoholic { get; set; }
+        [Display(Name = "Vangis olnud")]
         public int? BeenInJail { get; set; }
     }
 }
