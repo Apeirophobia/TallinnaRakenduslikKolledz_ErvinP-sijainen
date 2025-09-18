@@ -1,0 +1,109 @@
+﻿@model TallinnaRakenduslikKolledz.Models.Instructor
+
+@{
+	ViewData["Title"] = "Lisa õpetaja";
+}
+<h1>Lisa õpetaja</h1>
+<h4>Õpetaja</h4>
+<hr/>
+<div class="rom">
+	<div class="col-md-8">
+		<form asp-action="Create">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+			<div class="form-group">
+				<label asp-for="LastName">Perekonnanimi</label>
+				<input asp-for="LastName" class="form-control"/>
+				<span asp-validation-for="LastName" class="text-danger"></span>
+
+			</div>
+
+			<div class="form-group">
+				<label asp-for="FirstName">Eesnimi</label>
+				<input asp-for="FirstName" class="form-control"/>
+				<span asp-validation-for="FirstName" class="text-danger"></span>
+
+			</div>
+
+			<div class="form-group">
+				<label asp-for="HireDate">Töölevõttu kuupäev</label>
+				<input asp-for="HireDate" class="form-control" />
+				<span asp-validation-for="HireDate" class="text-danger"></span>
+
+			</div>
+
+			<div class="form-group">
+				<label asp-for="OfficeAssignments">Kontoritööd</label>
+				<input asp-for="OfficeAssignments" class="form-control" />
+				<span asp-validation-for="OfficeAssignments" class="text-danger"></span>
+
+			</div>
+
+			<div class="form-group">
+				<label asp-for="PhoneNumber">Telefoninumber</label>
+				<input asp-for="PhoneNumber" class="form-control" />
+				<span asp-validation-for="PhoneNumber" class="text-danger"></span>
+
+			</div>
+
+			<div class="form-group">	
+				<label asp-for="Alcoholic">Alkohoolik</label>
+				<input asp-for="Alcoholic" class="form-control" />
+				<span asp-validation-for="Alcoholic" class="text-danger"></span>
+
+			</div>
+
+
+			<div class="form-group">
+				<label asp-for="BeenInJail">Vangis olnud</label>
+				<input asp-for="BeenInJail" class="form-control" />
+				<span asp-validation-for="BeenInJail" class="text-danger"></span>
+
+			</div>
+
+			@* Lisage mudeli teiste andmete jaoks ka sisendiplokk *@
+			<div class="form-group">
+				<div class="col-md-offset-2-col-md-10">
+					<table>
+						<tr>
+							@{
+								int count = 0;
+								List<TallinnaRakenduslikKolledz.Models.AssignedCourseData> assignedCourses = ViewBag.Courses;
+								if (assignedCourses != null)
+								{ 
+									foreach (var course in assignedCourses)
+									{
+										if (count++ % 3 == 0)
+										{
+											@:</tr><tr>
+										}
+										@:<td>
+										<input 
+										type="checkbox"
+										name="selectedCourses"
+										value="@course.CourseID"
+										@(Html.Raw(course.Assigned ? "checked=\"checked\"":""))
+										/>
+									}
+								}
+								else
+								{
+									@:Kursuseid ei leitud
+								}
+							}
+						</tr>
+					</table>
+				</div>
+			</div>
+
+			<div>
+				<input type="submit" value="Sisesta" class="btn btn-primary"/>
+			</div>
+			
+			<div>
+				<a asp-action="Index" class="btn btn-danger">Tühista lisamine</a>
+			</div>
+
+		</form>
+	</div>
+</div>
