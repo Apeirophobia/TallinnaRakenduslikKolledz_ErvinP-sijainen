@@ -26,6 +26,15 @@ namespace TallinnaRakenduslikKolledz.Models
         [Display(Name = "Tööleasumiskuupäev")]
         public DateTime HireDate { get; set; }
 
+        public enum Status
+        {
+            Employed,
+            SickLeave,
+            ParentalLeave,
+            Fired
+        }
+
+        public Status? status { get; set; }
         public ICollection<CourseAssignment>? CourseAssignments { get; set; }
         public OfficeAssignment? OfficeAssignments { get; set; }
         /* Lisa kolm omadust õpetaja, ise nõtled välja*/
