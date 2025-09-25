@@ -5,7 +5,7 @@ namespace TallinnaRakenduslikKolledz.Data
 {
     public class DbInitializer
     {
-        public static void Initializer(SchoolContext context)
+        public static void Initialize(SchoolContext context)
         {
             context.Database.EnsureCreated();
             if (context.Students.Any())

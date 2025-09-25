@@ -9,7 +9,7 @@
 	<a asp-action="Create">Loo uus osakond</a>
 </p>
 
-<table class"table">
+<table class="table">
 	<thead>
 		<tr>
 			<th>@Html.DisplayNameFor(model => model.Name)</th>
@@ -22,7 +22,8 @@
 		</tr>
 	</thead>
 	<tbody>
-			@foreach (var department in Model) {
+			@foreach (var department in Model) 
+			{
 				<tr>
 					<td>@Html.DisplayFor(modelItem => department.Name)</td>
 					<td>@Html.DisplayFor(modelItem => department.Budget)</td>
@@ -35,7 +36,8 @@
 						@* /* Vaata */ *@
 						@* /* Vaata Administraatorit*/ *@
 						@* /* Kustuta */ *@
-						<a asp-action="Delete" asp-route-id="@department.DepartmentID" class="btn btn-dark">Eemalda</a>
+						<a asp-action="Delete" asp-route-id="@department.DepartmentID" class="btn btn-danger">Eemalda</a>
+						<a asp-action="Details" asp-route-id="@department.DepartmentID" class="btn btn-primary">Vaata</a>
 					</td>
 				</tr>
 			}

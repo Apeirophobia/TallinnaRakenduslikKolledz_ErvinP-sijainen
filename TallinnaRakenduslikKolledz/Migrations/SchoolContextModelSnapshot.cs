@@ -107,7 +107,7 @@ namespace TallinnaRakenduslikKolledz.Migrations
 
                     b.HasIndex("InstructorID");
 
-                    b.ToTable("Department", (string)null);
+                    b.ToTable("Departments", (string)null);
                 });
 
             modelBuilder.Entity("TallinnaRakenduslikKolledz.Models.Enrollment", b =>

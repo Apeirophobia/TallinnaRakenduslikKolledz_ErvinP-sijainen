@@ -1,0 +1,74 @@
+﻿@model TallinnaRakenduslikKolledz.Models.Department
+
+@{
+	ViewData["Title"] = "Osakond";
+}
+
+<h1>Asuta uus osakond</h1>
+<hr />
+<div class="row">
+	<div class="col-md-4"> 
+		<form asp-action="Create">
+			
+			<input type="hidden" asp-for="RawVersion" value="@Html.Raw("0")" />
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+			<div class="form-group">
+				<label asp-for="Name" class="control-label">Name</label>
+				<input asp-for="Name" class="control-label" />
+				<span asp-validation-for="Name" class="text-danger" />
+			</div>
+			
+			<div class="form-group">
+				<label asp-for="Budget" class="control-label">Budget</label>
+				<input asp-for="Budget" class="control-label" />
+				<span asp-validation-for="Budget" class="text-danger" />
+			</div>
+			
+			<div class="form-group">
+				<label asp-for="StartDate" class="control-label">StartDate</label>
+				<input asp-for="StartDate" class="control-label" />
+				<span asp-validation-for="StartDate" class="text-danger" />
+			</div>
+			
+			<div class="form-group">
+				<label asp-for="InstructorID" class="control-label">InstructorID</label>
+				<select asp-for="InstructorID" class="control-label" asp-items="ViewBag.InstructorID">
+					<option value=""> --Palun Vali Opetaja-- </option>
+				</select>
+				<span asp-validation-for="InstructorID" class="text-danger" />
+			</div>
+
+
+			<div class="form-group">
+				<label asp-for="StudentsDroppedOut" class="control-label">StudentsDroppedOut</label>
+				<input asp-for="StudentsDroppedOut" class="control-label" />
+				<span asp-validation-for="StudentsDroppedOut" class="text-danger" />
+			</div>
+			
+			<div class="form-group">
+				<label asp-for="TotalGraduates" class="control-label">TotalGraduates</label>
+				<input asp-for="TotalGraduates" class="control-label" />
+				<span asp-validation-for="TotalGraduates" class="text-danger" />
+			</div>
+			
+			<div class="form-group">
+				<label asp-for="Administrator" class="control-label">Administrator</label>
+				<input asp-for="Administrator" class="control-label" />
+				<span asp-validation-for="Administrator" class="text-danger" />
+			</div>
+
+			<div class="form-group">
+				<input type="submit" value="Loo" class="btn btn-primary"/> | <a asp-action="Index" class="btn btn-danger">Tühista</a>
+			</div>
+
+		</form>
+	</div>
+
+</div>
+
+
+
+<div>
+
+</div>

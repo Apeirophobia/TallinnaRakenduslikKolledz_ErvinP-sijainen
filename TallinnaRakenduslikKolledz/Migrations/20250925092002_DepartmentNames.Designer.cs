@@ -12,8 +12,8 @@ using TallinnaRakenduslikKolledz.Data;
 namespace TallinnaRakenduslikKolledz.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    [Migration("20250924091553_departments")]
-    partial class departments
+    [Migration("20250925092002_DepartmentNames")]
+    partial class DepartmentNames
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -84,6 +84,9 @@ namespace TallinnaRakenduslikKolledz.Migrations
                     b.Property<decimal>("Budget")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<int>("CurrentStatus")
+                        .HasColumnType("int");
+
                     b.Property<int?>("InstructorID")
                         .HasColumnType("int");
 
@@ -97,9 +100,6 @@ namespace TallinnaRakenduslikKolledz.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("StudentCount")
-                        .HasColumnType("int");
-
                     b.Property<int?>("StudentsDroppedOut")
                         .HasColumnType("int");
 
@@ -110,7 +110,7 @@ namespace TallinnaRakenduslikKolledz.Migrations
 
                     b.HasIndex("InstructorID");
 
-                    b.ToTable("Department", (string)null);
+                    b.ToTable("Departments", (string)null);
                 });
 
             modelBuilder.Entity("TallinnaRakenduslikKolledz.Models.Enrollment", b =>

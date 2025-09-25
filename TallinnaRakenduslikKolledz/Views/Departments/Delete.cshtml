@@ -1,0 +1,45 @@
+﻿@model TallinnaRakenduslikKolledz.Models.Department
+
+@{
+	ViewData["Title"] = "Kustuta osakond";
+}
+
+<h2>@Html.DisplayFor(modelItem => Model.Name)</h2>
+<p>
+	<h3>Kustuta osakond</h3>
+</p>
+
+
+<div>
+	<hr />
+	<dl class="row">
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.Name)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.Name)</dt>
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.DepartmentID)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.DepartmentID)</dt>
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.TotalGraduates)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.TotalGraduates)</dt>
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.Budget)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.Budget)</dt>
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.StartDate)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.StartDate)</dt>
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.InstructorID)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.InstructorID)</dt>
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.CurrentStatus)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.CurrentStatus)</dt>
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.StudentsDroppedOut)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.StudentsDroppedOut)</dt>
+	</dl>
+
+	
+	<form asp-action="Delete">
+		<input type="hidden" asp-for="DepartmentID" />
+		<input type="hidden" asp-for="RawVersion" />
+		@if (ViewBag.SelectedAction == "Delete")
+		{
+			<input type="submit" value="Kustuta" class="btn btn-danger" /> 
+		}
+		<a asp-action="Index">Tühista</a>
+	</form>
+	
+</div>
