@@ -65,11 +65,11 @@ namespace TallinnaRakenduslikKolledz.Data
             if (context.Instructors.Any()) { return; }
             var instructors = new Instructor[]
             {
-                new Instructor() {FirstName = "Daniel", LastName = "Donkey", HireDate = DateTime.Now, Alcoholic = 1, BeenInJail = 1},
-                new Instructor() {FirstName = "Richard", LastName = "Watterson", HireDate = DateTime.Now, Alcoholic = 0, BeenInJail = 2},
-                new Instructor() {FirstName = "Ervin", LastName = "Sikowitz", HireDate = DateTime.Now, Alcoholic = 1, BeenInJail = 1},
-                new Instructor() {FirstName = "Terrance", LastName = "Jeter", HireDate = DateTime.Now, Alcoholic = 0, BeenInJail = 0},
-                new Instructor() {FirstName = "Lena", LastName = "Golovach", HireDate = DateTime.Now, Alcoholic = 1, BeenInJail = 0},
+                new Instructor {FirstName = "Daniel", LastName = "Donkey", HireDate = DateTime.Now, Alcoholic = 1, BeenInJail = 1},
+                new Instructor {FirstName = "Richard", LastName = "Watterson", HireDate = DateTime.Now, Alcoholic = 0, BeenInJail = 2},
+                new Instructor {FirstName = "Ervin", LastName = "Sikowitz", HireDate = DateTime.Now, Alcoholic = 1, BeenInJail = 1},
+                new Instructor {FirstName = "Terrance", LastName = "Jeter", HireDate = DateTime.Now, Alcoholic = 0, BeenInJail = 0},
+                new Instructor {FirstName = "Lena", LastName = "Golovach", HireDate = DateTime.Now, Alcoholic = 1, BeenInJail = 0},
             };
 
             context.Instructors.AddRange(instructors);
