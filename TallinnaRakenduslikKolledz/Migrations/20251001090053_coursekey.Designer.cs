@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TallinnaRakenduslikKolledz.Data;
 
@@ -11,9 +12,11 @@ using TallinnaRakenduslikKolledz.Data;
 namespace TallinnaRakenduslikKolledz.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    partial class SchoolContextModelSnapshot : ModelSnapshot
+    [Migration("20251001090053_coursekey")]
+    partial class coursekey
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -81,7 +84,7 @@ namespace TallinnaRakenduslikKolledz.Migrations
                     b.Property<decimal>("Budget")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("CurrentStatus")
+                    b.Property<int>("CurrentStatus")
                         .HasColumnType("int");
 
                     b.Property<int?>("InstructorID")

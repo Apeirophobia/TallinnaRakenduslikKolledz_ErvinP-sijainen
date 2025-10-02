@@ -23,7 +23,7 @@ namespace TallinnaRakenduslikKolledz.Models
         public byte? RawVersion { get; set; }
         /* 3 isiklikult unikaalset andmevälja kursusele juurde */
 
-        public DepartmentStatus CurrentStatus { get; set; }
+        public DepartmentStatus? CurrentStatus { get; set; }
         public int? StudentsDroppedOut { get; set; }
         public int? TotalGraduates { get; set; }
 
