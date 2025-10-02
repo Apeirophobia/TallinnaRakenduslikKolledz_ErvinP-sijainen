@@ -12,8 +12,8 @@
 	<div class="row">
 		<div class="col-md-4">
 			<form asp-action="Create">
-				<div asp asp-validation-summary="ModelOnly" class="text-danger"></div>
-
+				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				
 				@* <div>
 				<label asp-for="CourseId" class="control-label"></label>
 				<input asp-for="CourseId" class="form-control" />
@@ -51,5 +51,48 @@
 
 else
 {
-	
+	<h1>Muuda</h1>
+	<div>
+		<h2>Muuda osakonna andmed</h2>
+		<hr />
+		<div class="row">
+			<div class="col-md-4">
+				<form asp-action="Edit">
+					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+					<input asp-for="CourseId" />
+
+					<div class="form-group">
+						<label asp-for="Title" class="control-label">Title</label>
+						<input asp-for="Title" class="control-label"/>
+						<span asp-validation-for="Title" class="text-danger" />
+					</div>
+					
+					<div class="form-group">
+						<label asp-for="Credits" class="control-label">Credits</label>
+						<input asp-for="Credits" class="control-label" />
+						<span asp-validation-for="Credits" class="text-danger" />
+					</div>
+					
+					<div class="form-group">
+						<label asp-for="Department" class="control-label">Department</label>
+						<select asp-for="DepartmentID" class="form-control" asp-items="ViewBag.DepartmentID">
+							<option value="" class="form-control"> --Vali osakond--</option>
+						</select>
+
+						<span asp-validation-for="DepartmentID" class="text-danger"></span>
+
+					</div>
+					
+					<div class="form-group">
+						<input type="submit" value="Muuda" class="btn btn-primary" />
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
 }
+
+<div>
+	<a asp-action="Index">Tagasi loendisse</a>
+</div>

@@ -106,6 +106,21 @@ namespace TallinnaRakenduslikKolledz.Controllers
             ViewData["SelectedAction"] = "Details";
             return View("Delete", course);
         }
+        [HttpGet]
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var course = await _context.Courses
+                .Include(c => c.Department)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(m => m.CourseId == id);
+            return View("Create", course);
+        }
+        
 
     }
 }

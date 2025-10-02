@@ -115,9 +115,9 @@ namespace TallinnaRakenduslikKolledz.Controllers
 
         }
 
-        [HttpPost, ActionName("ConfirmEdit")]
+        [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit([Bind("DepartmentID, Name, Budget, StartDate, RawVersion, InstructorID, CurrentStatus, StudentsDroppedOut, TotalGraduates, Administrator")] Department department)
+        public async Task<IActionResult> ConfirmEdit([Bind("DepartmentID, Name, Budget, StartDate, RawVersion, InstructorID, CurrentStatus, StudentsDroppedOut, TotalGraduates, Administrator")] Department department)
         {
             if (department.DepartmentID == null)
             {
@@ -130,7 +130,7 @@ namespace TallinnaRakenduslikKolledz.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View(department);
+            return View("Create", department);
         }
     }
 }
