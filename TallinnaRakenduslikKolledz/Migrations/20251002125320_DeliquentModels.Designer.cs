@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TallinnaRakenduslikKolledz.Data;
 
@@ -11,9 +12,11 @@ using TallinnaRakenduslikKolledz.Data;
 namespace TallinnaRakenduslikKolledz.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    partial class SchoolContextModelSnapshot : ModelSnapshot
+    [Migration("20251002125320_DeliquentModels")]
+    partial class DeliquentModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -70,7 +73,7 @@ namespace TallinnaRakenduslikKolledz.Migrations
                     b.ToTable("CourseAssignments", (string)null);
                 });
 
-            modelBuilder.Entity("TallinnaRakenduslikKolledz.Models.Delinquent", b =>
+            modelBuilder.Entity("TallinnaRakenduslikKolledz.Models.Deliquent", b =>
                 {
                     b.Property<int>("DeliquentID")
                         .ValueGeneratedOnAdd()
@@ -78,7 +81,7 @@ namespace TallinnaRakenduslikKolledz.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DeliquentID"));
 
-                    b.Property<int>("DelinquentType")
+                    b.Property<int>("DeliquentType")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
@@ -98,7 +101,7 @@ namespace TallinnaRakenduslikKolledz.Migrations
 
                     b.HasKey("DeliquentID");
 
-                    b.ToTable("Delinquents", (string)null);
+                    b.ToTable("Deliquents", (string)null);
                 });
 
             modelBuilder.Entity("TallinnaRakenduslikKolledz.Models.Department", b =>

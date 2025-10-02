@@ -1,0 +1,62 @@
+﻿@model IEnumerable<TallinnaRakenduslikKolledz.Models.Delinquent>
+
+@{
+	ViewData["Title"] = "Korrarikkujad";
+}
+
+<h2>Korrarikkujad</h2>
+<p>
+	<a asp-action="Create">Lisa uus korrarikkuja</a>
+</p>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>@Html.DisplayNameFor(model => model.DeliquentID)</th>
+			<th>@Html.DisplayNameFor(model => model.LastName)</th>
+			<th>@Html.DisplayNameFor(model => model.FirstName)</th>
+			<th>@Html.DisplayNameFor(model => model.Violation)</th>
+			<th>@Html.DisplayNameFor(model => model.DelinquentType)</th>
+			<th>@Html.DisplayNameFor(model => model.Description)</th>
+			<th>Tööriistad</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var delinquent in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => delinquent.DeliquentID)
+				</td>
+
+				<td>
+					@Html.DisplayFor(modelItem => delinquent.LastName)
+				</td>
+
+				<td>
+					@Html.DisplayFor(modelItem => delinquent.FirstName)
+				</td>
+
+				<td>
+					@Html.DisplayFor(modelItem => delinquent.Violation)
+				</td>
+
+				<td>
+					@Html.DisplayFor(modelItem => delinquent.DelinquentType)
+				</td>
+
+				<td>
+					@Html.DisplayFor(modelItem => delinquent.Description)
+				</td>
+
+				<td>
+					<a asp-action="Delete" asp-route-id="@delinquent.DeliquentID">Kustuta</a>
+					<a asp-action="Vaata" asp-route-id="@delinquent.DeliquentID">Vaata</a>
+					<a asp-action="Muuda" asp-route-id="@delinquent.DeliquentID">Muuda</a>
+				</td>
+
+			</tr>
+		}
+	</tbody>
+</table>
+
