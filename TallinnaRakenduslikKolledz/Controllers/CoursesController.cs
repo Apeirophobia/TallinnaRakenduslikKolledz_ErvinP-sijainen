@@ -26,6 +26,7 @@ namespace TallinnaRakenduslikKolledz.Controllers
         public IActionResult Create()
         {
             PopulateDepartmentsDropDownList();
+            ViewData["SelectedAction"] = "Create";
             return View();
         }
         [HttpPost]
@@ -39,6 +40,8 @@ namespace TallinnaRakenduslikKolledz.Controllers
                 PopulateDepartmentsDropDownList(course.DepartmentID);
                 
             }
+
+            
             return RedirectToAction("Index");
         }
 
@@ -118,8 +121,34 @@ namespace TallinnaRakenduslikKolledz.Controllers
                 .Include(c => c.Department)
                 .AsNoTracking()
                 .FirstOrDefaultAsync(m => m.CourseId == id);
+            if (course == null)
+            {
+                return NotFound();
+            }
+
+            PopulateDepartmentsDropDownList(course.DepartmentID);
+            ViewData["SelectedAction"] = "Edit";
             return View("Create", course);
         }
+
+        [HttpPost, ActionName("Edit")]
+        [AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> ConfirmEdit([Bind("CourseId, Title, Credits, DepartmentID")] Course course)
+        {
+            if (course.CourseId == null)
+            {
+                return NotFound();
+            }
+            if (ModelState.IsValid)
+            {
+                _context.Courses.Update(course);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+
+            return View("Create", course);
+        }
+
         
 
     }

@@ -53,13 +53,13 @@ else
 {
 	<h1>Muuda</h1>
 	<div>
-		<h2>Muuda osakonna andmed</h2>
+		<h2>Muuda kursuse andmed</h2>
 		<hr />
 		<div class="row">
 			<div class="col-md-4">
 				<form asp-action="Edit">
 					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-					<input asp-for="CourseId" />
+					<input type="hidden" asp-for="CourseId" />
 
 					<div class="form-group">
 						<label asp-for="Title" class="control-label">Title</label>
