@@ -37,7 +37,7 @@ namespace TallinnaRakenduslikKolledz.Controllers
             {
                 _context.Add(course);
                 await _context.SaveChangesAsync();
-                PopulateDepartmentsDropDownList(course.DepartmentID);
+                // PopulateDepartmentsDropDownList(course.DepartmentID);
                 
             }
 
