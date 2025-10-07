@@ -12,7 +12,7 @@
 <table class="table">
 	<thead>
 		<tr>
-			<th>@Html.DisplayNameFor(model => model.DeliquentID)</th>
+			<th>@Html.DisplayNameFor(model => model.DelinquentID)</th>
 			<th>@Html.DisplayNameFor(model => model.LastName)</th>
 			<th>@Html.DisplayNameFor(model => model.FirstName)</th>
 			<th>@Html.DisplayNameFor(model => model.Violation)</th>
@@ -26,7 +26,7 @@
 		{
 			<tr>
 				<td>
-					@Html.DisplayFor(modelItem => delinquent.DeliquentID)
+					@Html.DisplayFor(modelItem => delinquent.DelinquentID)
 				</td>
 
 				<td>
@@ -50,9 +50,9 @@
 				</td>
 
 				<td>
-					<a asp-action="Delete" asp-route-id="@delinquent.DeliquentID">Kustuta</a>
-					<a asp-action="Vaata" asp-route-id="@delinquent.DeliquentID">Vaata</a>
-					<a asp-action="Muuda" asp-route-id="@delinquent.DeliquentID">Muuda</a>
+					<a asp-action="Delete" asp-route-id="@delinquent.DelinquentID">Kustuta</a>
+					<a asp-action="Details" asp-route-id="@delinquent.DelinquentID">Vaata</a>
+					<a asp-action="Muuda" asp-route-id="@delinquent.DelinquentID">Muuda</a>
 				</td>
 
 			</tr>

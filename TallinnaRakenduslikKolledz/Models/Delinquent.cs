@@ -24,12 +24,12 @@ namespace TallinnaRakenduslikKolledz.Models
     public class Delinquent
     {
         [Key]
-        public int DeliquentID { get; set; }
+        public int DelinquentID { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public Violation Violation { get; set; }
         public DelinquentType DelinquentType { get; set; }
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
     }
 }
