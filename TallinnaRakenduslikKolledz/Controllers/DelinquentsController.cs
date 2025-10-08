@@ -81,14 +81,14 @@ namespace TallinnaRakenduslikKolledz.Controllers
 
         [HttpGet]
         public async Task<IActionResult> Edit(int? id)
-        { 
+        {
             if (id == null)
             {
                 return NotFound();
             }
             var delinquent = await _context.Delinquents
                 .AsNoTracking().FirstOrDefaultAsync(d => d.DelinquentID == id);
-            
+
             if (delinquent == null)
             {
                 return NotFound();
@@ -114,6 +114,45 @@ namespace TallinnaRakenduslikKolledz.Controllers
             }
 
             return View("Edit", delinquent);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var delinquent = await _context.Delinquents
+                .AsNoTracking()
+                .FirstOrDefaultAsync(d => d.DelinquentID == id);
+
+            if (delinquent == null)
+            {
+                return NotFound();
+            }
+
+            return View("Delete", delinquent);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            if (_context.Delinquents == null)
+            {
+                return NotFound();
+            }
+
+            var delinquent = await _context.Delinquents.FindAsync(id);
+            if (delinquent != null)
+            {
+                _context.Delinquents.Remove(delinquent);
+            }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
         }
     }
 }
